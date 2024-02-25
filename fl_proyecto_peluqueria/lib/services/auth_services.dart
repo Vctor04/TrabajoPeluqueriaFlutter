@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 class AuthService extends ChangeNotifier {
   final String _baseUrl = 'identitytoolkit.googleapis.com';
-  final String _firebaseToken = 'XXXXXXXXXXXXXXXXXXXXXXX';
+  final String _firebaseToken = 'AIzaSyDG614rHlq224vbT4ZRA7tknO36WngLnXU';
 
   //Si devolmenos algo, es un error, si no, toco correcto
   Future<String?> createUser (String email, String password ) async {

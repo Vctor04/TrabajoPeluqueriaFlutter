@@ -1,3 +1,5 @@
+import 'package:fl_proyecto_peluqueria/screens/home_screen.dart';
+import 'package:fl_proyecto_peluqueria/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_proyecto_peluqueria/screens/login_screen.dart';
  
@@ -8,11 +10,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Productos App',
+      title: 'Peluqueria App',
       initialRoute: 'login',
       routes: {
         'login': ( _ ) => LoginScreen(),
-     
+        'home': ( _ ) => HomeScreen(),
+        'register': ( _ ) => RegisterScreen()
       },
       theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Colors.grey[300],

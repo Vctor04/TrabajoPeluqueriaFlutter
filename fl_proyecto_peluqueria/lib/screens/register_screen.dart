@@ -1,3 +1,4 @@
+import 'package:fl_proyecto_peluqueria/services/auth_services.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_proyecto_peluqueria/providers/login_form_provider.dart';
 import 'package:fl_proyecto_peluqueria/services/services.dart';
@@ -118,26 +119,24 @@ class _LoginForm extends StatelessWidget {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
               disabledColor: Colors.grey,
               elevation: 0,
-              color: Colors.deepPurple,
+              color: const Color.fromARGB(255, 12, 12, 12),
               child: Container(
                 padding: EdgeInsets.symmetric( horizontal: 80, vertical: 15),
                 child: Text(
                   loginForm.isLoading 
                     ? 'Espere'
-                    : 'Registo',
+                    : 'Registrarse',
                   style: TextStyle( color: Colors.white ),
                 )
               ),
               onPressed: loginForm.isLoading ? null : () async {
                 
                 FocusScope.of(context).unfocus();
-                final authService = Provider.of<AuthService>(context, listen: false);
+                final authService = AuthService();
 
                 if( !loginForm.isValidForm() ) return;
 
                 loginForm.isLoading = true;
-
-
 
                 // TODO: validar si el login es correcto
                 final String? errorMessage = await authService.createUser(loginForm.email, loginForm.password);
