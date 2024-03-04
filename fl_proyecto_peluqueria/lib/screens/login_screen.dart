@@ -115,9 +115,16 @@ class _LoginForm extends StatelessWidget {
 
                         loginForm.isLoading = false;
                         if (isLogged == null) {
-                          Navigator.pushReplacementNamed(context, 'home');
-                        } else {
-                          print(isLogged);
+                          authService
+                              .loadUsuarios(loginForm.email)
+                              .then((usuario) => {
+                                    Navigator.pushReplacementNamed(
+                                        context, 'home',
+                                        arguments: {"user": usuario})
+                                  })
+                                  .catchError((err) => {
+                                    print(err)
+                                  });
                         }
                       })
           ],
